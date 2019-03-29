@@ -8,11 +8,11 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: "https://gitlab.consulting.redhat.com/telekom-tif/engagement-journal.git"
+      uri: "https://github.com/dav1dli/new-project-jenkinspl.git"
     sourceSecret:
       name: "jenkins"
   strategy:
     jenkinsPipelineStrategy:
-      jenkinsfilePath: onboarding/new-project/Jenkinsfile.new
+      jenkinsfilePath: Jenkinsfile.new
     type: JenkinsPipeline
   successfulBuildsHistoryLimit: 5
