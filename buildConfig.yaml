@@ -13,6 +13,6 @@ spec:
       name: "jenkins"
   strategy:
     jenkinsPipelineStrategy:
-      jenkinsfilePath: Jenkinsfile.new
+      jenkinsfilePath: Jenkinsfile
     type: JenkinsPipeline
   successfulBuildsHistoryLimit: 5
