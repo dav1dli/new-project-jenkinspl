@@ -1,0 +1,18 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    name: tif-new-project
+  name: tif-new-project
+spec:
+  runPolicy: Serial
+  source:
+    git:
+      uri: "https://gitlab.consulting.redhat.com/telekom-tif/engagement-journal.git"
+    sourceSecret:
+      name: "jenkins"
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: onboarding/new-project/Jenkinsfile.new
+    type: JenkinsPipeline
+  successfulBuildsHistoryLimit: 5

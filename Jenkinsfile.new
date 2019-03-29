@@ -1,0 +1,41 @@
+#!groovy
+pipeline {
+  agent any
+  options {
+    timeout(time: 20, unit: 'MINUTES')
+  }
+  parameters {
+    string(name: 'projectname', description: 'OpenShift Project Name')
+    string(name: 'projectdescription', defaultValue: "", description: 'OpenShift Project Description')
+    string(name: 'projectdisplayname', defaultValue: "", description: 'OpenShift Project DisplayName')
+    string(name: 'projectadmin', description: 'Project Admin')
+    choice(name: 'projectsize', choices: ['s', 'm', 'l', 'z'], description: 'Project Size, z is zero (just for projects with config files in it)')
+    booleanParam(name: 'api_management', defaultValue: true, description: 'Is the project exposing or consuming APIs from TAPIR?')
+    string(name: 'customlabel', defaultValue: 'tif.telekom.de/businessproject=tif-development', description: 'Add a custom label, e.g. tif.telekom.de/businessproject=tif-development')
+  }
+  stages {
+    stage ('CheckParameters') {
+      when {
+        expression {
+          "${params.projectname}" == "" || "${params.projectadmin}" == ""
+        }
+      }
+      steps {
+        error("projectname and projectadmin must be provided")
+      }
+    }
+    stage ('CheckCluster') {
+      steps {
+        echo "Stub"
+        sh 'ls -lF'
+      }
+    }
+    stage ('NewProject') {
+      steps {
+        echo "Stub"
+      }
+
+    }
+
+  }
+}
