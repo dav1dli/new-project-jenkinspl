@@ -1,3 +1,6 @@
+// This script requires evaluated cluster permissions allowing new projects creation,
+// and security content, quota, and accounts manipulation
+// oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:newprj-demo:jenkins --as=system:admin
 pipeline {
   agent any
   options {
